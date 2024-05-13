@@ -1,0 +1,15 @@
+services:
+  api:
+    build: ./todo_backend_new        
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./todo_backend_new:/todo_backend_new
+    command: bash -c "python manage.py runserver 0.0.0.0:8000"
+
+  web:
+    build: ./todo_frontend
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./todo_frontend:/todo_frontend
